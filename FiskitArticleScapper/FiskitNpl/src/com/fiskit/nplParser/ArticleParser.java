@@ -13,35 +13,35 @@ import opennlp.tools.util.InvalidFormatException;
 import com.fiskkit.Fetcher;
 import com.opencsv.CSVWriter;
 
+/**
+ * This class uses an NLP parser to extract sentences from live news articles.
+ * and creates a list of sentences in csv format.
+ * @author Thabang Ngazimbi
+ *
+ */
 public class ArticleParser {
 	
 	public static void SentenceDetect(String urlstr) throws InvalidFormatException,
 	IOException {
 		List<String> paragraph = Fetcher.pullAndExtract(urlstr);
 
-		// always start with a model, a model is learned from training data
-		InputStream is = new FileInputStream("E:\\Chrome Downloads\\en-sent.bin");
-		SentenceModel model = new SentenceModel(is);
+		// We start with a model that will be learned from training data
+		InputStream istream = new FileInputStream("E:\\Chrome Downloads\\en-sent.bin");
+		SentenceModel model = new SentenceModel(istream);
+		
+		//use SentenceDetectorME to split text into raw sentence
 		SentenceDetectorME sdetector = new SentenceDetectorME(model);
 		
 		CSVWriter writer = new CSVWriter(new FileWriter("E:\\output.csv"), '\n');
-		
-		int x = 1;
+
 		for(String p: paragraph){
 			String[] sentences = sdetector.sentDetect(p);
 			
 			writer.writeNext(sentences);
-			
-			System.out.println("Paragraph " + x);
-			for(int i = 0; i < sentences.length; i++ ){
-				System.out.println(sentences[i]);
-			}
-			System.out.println("");
-			x++;
 		}
 		
 		writer.close();
-		is.close();
+		istream.close();
 	}
 
 	
