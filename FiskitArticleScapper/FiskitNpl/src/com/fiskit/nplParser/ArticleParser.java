@@ -32,7 +32,7 @@ public class ArticleParser {
 		//use SentenceDetectorME to split text into raw sentence
 		SentenceDetectorME sdetector = new SentenceDetectorME(model);
 		
-		CSVWriter writer = new CSVWriter(new FileWriter("E:\\output.csv"), '\n');
+		CSVWriter writer = new CSVWriter(new FileWriter("E:\\output1.csv"), ',');
 
 		for(String p: paragraph){
 			String[] sentences = sdetector.sentDetect(p);
@@ -42,12 +42,15 @@ public class ArticleParser {
 		
 		writer.close();
 		istream.close();
+		
+		System.out.println("Scrape complete....");
 	}
 
 	
 	public static void main(String[] args) throws InvalidFormatException, IOException{
 		
-		SentenceDetect("http://www.weeklystandard.com/blogs/intel-chief-blasts-obama_802242.html");
+		SentenceDetect(
+				"http://www.independent.co.uk/news/world/europe/greece-wants-germany-to-repay-279bn-it-was-forced-to-loan-the-nazi-authorities-during-wwii-10159738.html");
 		
 	}
 }

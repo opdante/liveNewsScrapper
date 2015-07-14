@@ -7,6 +7,6 @@
 	<classpathentry kind="lib" path="E:/Chrome Downloads/apache-opennlp-1.5.3-bin/apache-opennlp-1.5.3/lib/opennlp-tools-1.5.3.jar" sourcepath="C:/Users/opdante/.m2/repository/org/apache/opennlp/opennlp-tools/1.5.3/opennlp-tools-1.5.3-sources.jar"/>
 	<classpathentry kind="lib" path="E:/Chrome Downloads/apache-opennlp-1.5.3-bin/apache-opennlp-1.5.3/lib/opennlp-uima-1.5.3.jar"/>
 	<classpathentry kind="lib" path="E:/Chrome Downloads/article-scraper-project/article-scraper-project/libs/Fetcher.jar"/>
-	<classpathentry kind="lib" path="E:/Chrome Downloads/opencsv-3.4.jar"/>
+	<classpathentry kind="lib" path="E:/libraries/Java/opencsv-3.4.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
